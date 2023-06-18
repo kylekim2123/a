@@ -32,10 +32,14 @@ public class MainController {
             int menuNumber = inputMenuNumber();
             Menu selectedMenu = getSelectedMenu(menuNumber);
 
-            isRunning = !selectedMenu.isQuit();
+            isRunning = isRunning(selectedMenu);
 
             execute(selectedMenu);
         }
+    }
+
+    private boolean isRunning(Menu selectedMenu) {
+        return !selectedMenu.isQuit();
     }
 
     private void execute(Menu selectedMenu) {
