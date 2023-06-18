@@ -1,11 +1,14 @@
 package calculator.utils;
 
-public class StringUtils {
+public final class StringUtils {
 
     private static final String NUMERIC_REGEX = "\\d+";
     private static final String EXPRESSION_REGEX = "^\\d+(\\s[+\\-*/]\\s\\d+)*";
     private static final String EMPTY = " ";
     private static final String EQUAL = " = ";
+
+    private StringUtils() {
+    }
 
     public static boolean isNumeric(String numericString) {
         return numericString.matches(NUMERIC_REGEX);
