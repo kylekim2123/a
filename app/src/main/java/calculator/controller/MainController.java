@@ -1,6 +1,7 @@
 package calculator.controller;
 
 import static calculator.entity.Menu.getSelectedMenu;
+import static calculator.utils.StringUtils.makeHistory;
 import static calculator.view.InputView.inputExpression;
 import static calculator.view.InputView.inputMenuNumber;
 import static calculator.view.OutputView.showAllHistory;
@@ -47,9 +48,13 @@ public class MainController {
 
         if (selectedMenu.isCalculate()) {
             showExpressionInputMessage();
-            String expression = inputExpression();
 
+            String expression = inputExpression();
             int result = calculator.calculate(expression);
+
+            String history = makeHistory(expression, result);
+            historyStorage.save(history);
+
             showCalculationResult(result);
         }
     }

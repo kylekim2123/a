@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import calculator.entity.Notation;
 import calculator.entity.PostfixNotation;
-import calculator.storage.HistoryStorage;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -13,14 +12,12 @@ import org.junit.jupiter.params.provider.CsvSource;
 public class PostfixCalculatorTest {
 
     private Calculator calculator;
-    private HistoryStorage historyStorage;
     private Notation notation;
 
     @BeforeEach
     void init() {
-        historyStorage = new HistoryStorage();
         notation = new PostfixNotation();
-        calculator = new Calculator(historyStorage, notation);
+        calculator = new Calculator(notation);
     }
 
     @DisplayName("후위표현식으로 계산할 때 정상적으로 결과 값이 나오는지 테스트")

@@ -14,7 +14,7 @@ public class App {
     public static void main(String[] args) {
         HistoryStorage historyStorage = new HistoryStorage();
         Notation notation = new PostfixNotation();
-        Calculator calculator = new Calculator(historyStorage, notation);
+        Calculator calculator = new Calculator(notation);
         MainController mainController = new MainController(historyStorage, calculator);
 
         try {

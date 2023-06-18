@@ -1,31 +1,22 @@
 package calculator.service;
 
-import static calculator.utils.StringUtils.makeHistory;
-
 import calculator.entity.Expression;
 import calculator.entity.Notation;
 import calculator.entity.Operator;
-import calculator.storage.HistoryStorage;
 import java.util.Stack;
 
 public class Calculator {
 
-    private final HistoryStorage historyStorage;
     private final Notation notation;
 
-    public Calculator(HistoryStorage historyStorage, Notation notation) {
-        this.historyStorage = historyStorage;
+    public Calculator(Notation notation) {
         this.notation = notation;
     }
 
     public int calculate(String expression) {
         String[] elements = notation.makeElements(expression);
-        int result = evaluate(elements);
 
-        String history = makeHistory(expression, result);
-        historyStorage.save(history);
-
-        return result;
+        return evaluate(elements);
     }
 
     private int evaluate(String[] elements) {
