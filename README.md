@@ -1,5 +1,6 @@
 # java_calculator
 > 순수 자바로 OOP를 적용하여 계산기 만들기 - 김영주
+> 코드리뷰 : https://github.com/prgrms-be-devcourse/java-calculator/pull/134
 
 ## 요구사항
 
